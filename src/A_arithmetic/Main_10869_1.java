@@ -1,4 +1,4 @@
-package 사칙연산;
+package A_arithmetic;
 
 public class Main_10869_1 {
     private static int a;

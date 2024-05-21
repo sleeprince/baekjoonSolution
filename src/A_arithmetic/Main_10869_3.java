@@ -1,4 +1,4 @@
-package 사칙연산;
+package A_arithmetic;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
