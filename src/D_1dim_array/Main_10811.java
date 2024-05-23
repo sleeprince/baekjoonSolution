@@ -16,7 +16,7 @@ public class Main_10811 {
         int result = 0;
         while(true){
             a = System.in.read();
-            if(a == 10) continue;
+            //if(a == 10) continue;
             if(a < '0' || a > '9') return result;
             result *= 10;
             result += a - '0';
