@@ -7,7 +7,7 @@ public class Main_10869_1 {
     private static int input() throws Exception {
 		int result = 0;
 		int dgt = 0;
-		while((dgt = System.in.read()) != -1){
+		while(true){
             			
 			if(dgt > '9' || dgt <'0') {				
 				return result;
@@ -15,9 +15,7 @@ public class Main_10869_1 {
             result *= 10;
 			dgt = dgt - '0';
 			result += dgt;            
-		}
-		
-		return result;
+		}		
 	}
 	//메모리 14176KB 120ms
 	//세 가지 입력 메소드 가운데 가장 빠르다.
