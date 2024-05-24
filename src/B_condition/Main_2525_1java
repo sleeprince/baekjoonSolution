@@ -58,7 +58,7 @@ class Time{
     }
 }
 
-public class Main_2525 {
+public class Main_2525_1 {
     //입력 받기
     private static int input() throws Exception{
         int a = 0;
