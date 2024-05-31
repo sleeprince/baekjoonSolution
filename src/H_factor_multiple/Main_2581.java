@@ -15,15 +15,36 @@ public class Main_2581 {
         int end = sc.nextInt();
         int sum = 0;
         int min = end + 1;
-        if(strt == 2){
+        boolean primary = true;
+        if(strt == 1){
+            strt += 2;
+            if(end > 1){
+                sum = 2;
+                min = 2;
+            }
+        }else if(strt == 2){ 
             sum = 2;
             min = 2;
-        }
+        }        
         if(strt%2 == 0) strt++;
         for(int i = strt; i <= end; i += 2){
+            primary = true;
             for(int j = 3; j < i; j += 2){
-
+                if(i%j == 0) {
+                    primary = false;
+                    break;
+                }
             }
+            if(primary == true){
+                sum += i;
+                if(i < min) min = i;
+            }
+        }
+        if(sum != 0){
+            System.out.println(sum);
+            System.out.println(min);
+        }else{
+            System.out.println(-1);
         }
     }
 }
