@@ -27,5 +27,6 @@ public class Main_2738{
             }
             System.out.println();
         }
+        sc.close();
     }
 }

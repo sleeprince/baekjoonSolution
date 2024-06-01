@@ -22,6 +22,7 @@ public class Main_2566 {
                 }
             }
         }
+        sc.close();
         System.out.println(max);
         System.out.print(row + " " + col);
     }

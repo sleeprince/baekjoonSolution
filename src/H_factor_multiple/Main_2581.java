@@ -46,5 +46,6 @@ public class Main_2581 {
         }else{
             System.out.println(-1);
         }
+        sc.close();
     }
 }
