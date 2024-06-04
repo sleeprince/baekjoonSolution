@@ -1,5 +1,5 @@
 package H_factor_multiple;
-
+// 정수 N이 주어졌을 때, 소인수분해하는 프로그램을 작성하시오.
 public class Main_11653 {
     private static int inputInt() throws Exception{
         int tmp;
