@@ -8,7 +8,7 @@ package M_sort;
 // 조건에 따라 정렬하여 단어들을 출력한다.
 
 public class Main_1181_2 {
-
+//char 배열로
     private static final int max_len = 50;
     private static int inputInt() throws Exception{
         int tmp;
@@ -114,7 +114,9 @@ public class Main_1181_2 {
                 str[i][j] = tmp;
             }
         }
-        str = countingSortByAlph(str, 0);
+        for(int i = max_len-1; i >= 0; i--)
+            str = countingSortByAlph(str, i);
+
         str = countingSortByLen(str);
         printArray(str);
     }
