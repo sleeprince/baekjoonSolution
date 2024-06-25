@@ -10,7 +10,7 @@ package B_condition;
 
 //클래스&재귀함수로 일반적 문제 풀이
 
-class Time{
+final class Time{
     int h, m;
     //생성자
     public Time(){

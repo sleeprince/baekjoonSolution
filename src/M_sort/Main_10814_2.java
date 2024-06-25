@@ -11,14 +11,14 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Scanner;
 
-class User{
+//Lists클래스와 sort메소드, Comparator클래스로써
+final class User{
     public int age;
     public String name;
 }
-//Lists클래스와 sort메소드, Comparator클래스로써
+
 public class Main_10814_2 {
-    public static void main(String[] args){
-       
+    public static void main(String[] args){        
         Scanner sc = new Scanner(System.in);        
         int cnt = sc.nextInt();
         User[] list = new User[cnt];

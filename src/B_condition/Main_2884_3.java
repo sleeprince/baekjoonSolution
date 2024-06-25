@@ -7,7 +7,7 @@ package B_condition;
 // 현재 상근이가 설정한 알람 시각이 주어졌을 때, 창영이의 방법을 사용한다면, 이를 언제로 고쳐야 하는지 구하는 프로그램을 작성하시오.
 
 //클래스로 일반적 문제 풀이
-class Time{
+final class Time{
     int h, m;
     //생성자
     public Time(){

@@ -11,13 +11,15 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-class User{
+//ArrayList클래스와 sort메소드, Comparator클래스로써
+
+final class User{
     public int age;
     public String name;
 }
-//ArrayList클래스와 sort메소드, Comparator클래스로써
+
 public class Main_10814_1 {
-    public static void main(String[] args){
+    public static void main(String[] args){        
         List<User> list = new ArrayList<>();
         Scanner sc = new Scanner(System.in);
         int cnt = sc.nextInt();

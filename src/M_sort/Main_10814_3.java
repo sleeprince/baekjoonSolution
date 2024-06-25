@@ -10,7 +10,8 @@ import java.util.Arrays;
 
 import java.util.Scanner;
 
-class User implements Comparable<User>{
+//Lists클래스와 sort메소드, Comparable클래스로써
+final class User implements Comparable<User>{
     public int age;
     public String name;
     public User(){};
@@ -18,10 +19,8 @@ class User implements Comparable<User>{
         return this.age - user.age;
     }
 }
-//Lists클래스와 sort메소드, Comparable클래스로써
 public class Main_10814_3 {
-    public static void main(String[] args){
-       
+    public static void main(String[] args){ 
         Scanner sc = new Scanner(System.in);        
         int cnt = sc.nextInt();
         User[] list = new User[cnt];
