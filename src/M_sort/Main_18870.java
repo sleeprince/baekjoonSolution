@@ -10,37 +10,128 @@ package M_sort;
 
 import java.util.Scanner;
 
-class MyTree<T> {
+class MyTree<T extends Comparable<T>> {
 
-    private int cnt;
+    private Leaf<T> begin;
+    private Leaf<T> end;
+    private Leaf<T> root;
     class Leaf<T>{
-        private int key;
+        private T key;
         private Leaf<T> right;
         private Leaf<T> left;
-        private int sum;
-        private T cont;
+        private int index;
 
-        private Leaf(){
-            this.key = cnt;
-            cnt++;
+        public Leaf(T _key){           
+            this.key = _key;
+            this.right = null;
+            this.left = null;
+            this.index = 0;
         }
-    }   
+        
+        public void setKey(T _key){
+            this.key = _key;
+        }
+
+        public void setRight(Leaf<T> _right){
+            this.right = _right;
+        }
+
+        public void setLeft(Leaf<T> _left){
+            this.left = _left;
+        }
+
+        public void setIndex(int _index){
+            this.index = _index;
+        }
+
+        public T getKey(){
+            return this.key;
+        }
+
+        public Leaf<T> getRight(){
+            return this.right;
+        }
+
+        public Leaf<T> getLeft(){
+            return this.left;
+        }
+
+        public int getIndex(){
+            return this.index;
+        }
+    }
     
     public MyTree(){
-        cnt = 0;
+        this.root = null;
+        this.begin = null;
+        this.end = null;
     }
 
-    public MyTree(T _cont){
-        cnt = 0;
-        add(_cont);
-    }
+    public MyTree(T _key){
+        Leaf<T> leaf = new Leaf(_key);
+        this.begin = leaf;
+        this.end = leaf;
+        this.root = leaf;
+    }    
 
-    public int add(T _cont){
-        Leaf<T> leaf = new Leaf();
+    public int add(T _key){
+        if(this.root == null){
+            Leaf<T> leaf = new Leaf(_key);
+            this.begin = leaf;
+            this.end = leaf;
+            this.root = leaf;
 
-        return this.cnt - 1;
+        }else{
+            Leaf<T> leaf = new Leaf(_key)            
+
+        }       
+
+        return 1; //인덱스를 내보내자
     }
     
+    private boolean addLeft(Leaf<T> now, Leaf<T> _leaf){
+        T key_now = now.getKey();
+        Leaf<T> left_now = now.getLeft();
+        Leaf<T> right_now = now.getRight();
+        T key_leaf = _leaf.getKey();
+        Leaf<T> left_leaf = _leaf.getLeft();
+        Leaf<T> right_leaf = _leaf.getRight();
+        
+        if(key_leaf.compareTo(key_now) > 0){
+            //오른쪽으로
+            if(right_now == null){
+                right_now = _leaf;
+                return true;            
+            }else{
+                return addRight(right_now, _leaf);
+            }
+        }else if(key_leaf.compareTo(key_now) < 0){
+            //왼쪽으로
+            if(left_now == null){
+                left_now = _leaf;
+                return true;
+            }else{
+                return addLeft(left_now, _leaf);
+            }
+        }else{
+            return false;
+        }
+                
+    }
+
+    private boolean addRight(Leaf<T> now, Leaf<T> _leaf){
+
+    }
+
+
+
+    public int getIndexOf(T _key){
+        return 1;
+    }
+
+    public void getKeyOf(int _index){
+        
+    }
     
 }
 
