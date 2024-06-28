@@ -7,55 +7,56 @@ package B_condition;
 // 현재 상근이가 설정한 알람 시각이 주어졌을 때, 창영이의 방법을 사용한다면, 이를 언제로 고쳐야 하는지 구하는 프로그램을 작성하시오.
 
 //클래스로 일반적 문제 풀이
-final class Time{
-    int h, m;
-    //생성자
-    public Time(){
-        this.h = 0;
-        this.m = 0;
-    }
-    public Time(int _h, int _m){
-        if(_m >= 60){
-            _h += _m/60;
-            _m = _m%60;
-        }
-        if(_h >= 24){
-            _h %= 24;
-        }
-        this.h = _h;
-        this.m = _m;
-    }
-    //시간 형식으로 조정
-    private void makeSense(int _h, int _m){        
-        if(_m > 59){            
-            _m %= 60;
-            _h += _m/60;
-        }
-        while(_m < 0){
-            _m += 60;
-            _h--;
-        }        
-        if(_h >= 24){
-            _h %= 24;
-        }
-        while(_h < 0){
-           _h += 24;
-        }        
-        this.h = _h;
-        this.m = _m;
-    }
-    //시간 덧셈
-    public void addTime(int _h, int _m){
-        this.h += _h;
-        this.m += _m;
-        this.makeSense(this.h, this.m);
-    }
-    //시간 출력
-    public void printTime(){
-        System.out.print(this.h + " " + this.m);
-    }
-}
 public class Main_2884_2 {
+    
+    static class Time{
+        int h, m;
+        //생성자
+        public Time(){
+            this.h = 0;
+            this.m = 0;
+        }
+        public Time(int _h, int _m){
+            if(_m >= 60){
+                _h += _m/60;
+                _m = _m%60;
+            }
+            if(_h >= 24){
+                _h %= 24;
+            }
+            this.h = _h;
+            this.m = _m;
+        }
+        //시간 형식으로 조정
+        private void makeSense(int _h, int _m){        
+            if(_m > 59){            
+                _m %= 60;
+                _h += _m/60;
+            }
+            while(_m < 0){
+                _m += 60;
+                _h--;
+            }        
+            if(_h >= 24){
+                _h %= 24;
+            }
+            while(_h < 0){
+               _h += 24;
+            }        
+            this.h = _h;
+            this.m = _m;
+        }
+        //시간 덧셈
+        public void addTime(int _h, int _m){
+            this.h += _h;
+            this.m += _m;
+            this.makeSense(this.h, this.m);
+        }
+        //시간 출력
+        public void printTime(){
+            System.out.print(this.h + " " + this.m);
+        }
+    }
     //입력 받기
     private static int input() throws Exception{
         int a = 0;

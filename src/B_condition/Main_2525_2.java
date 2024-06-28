@@ -9,59 +9,59 @@ package B_condition;
 // 첫째 줄에 종료되는 시각의 시와 분을 공백을 사이에 두고 출력한다. (단, 시는 0부터 23까지의 정수, 분은 0부터 59까지의 정수이다. 디지털 시계는 23시 59분에서 1분이 지나면 0시 0분이 된다.)
 
 //클래스&재귀함수로 일반적 문제 풀이
+public class Main_2525_2 {
 
-final class Time{
-    int h, m;
-    //생성자
-    public Time(){
-        this.h = 0;
-        this.m = 0;
-    }
-    public Time(int _h, int _m){
-        if(_m >= 60){
-            _h += _m/60;
-            _m = _m%60;
+    static class Time{
+        int h, m;
+        //생성자
+        public Time(){
+            this.h = 0;
+            this.m = 0;
         }
-        if(_h >= 24){
-            _h %= 24;
-        }
-        this.h = _h;
-        this.m = _m;
-    }
-    //시간 형식으로 조정
-    private void makeSense(int _h, int _m){        
-        if(_h >= 0 && _h < 24 && _m >= 0 && _m < 60){
-            this.h = _h;
-            this.m = _m;
-        }else{
-            if(_m > 59){
-                _m -= 60;
-                _h++;
-            }else if(_m < 0){
-                _m += 60;
-                _h--;
+        public Time(int _h, int _m){
+            if(_m >= 60){
+                _h += _m/60;
+                _m = _m%60;
             }
             if(_h >= 24){
-                _h -= 24;
-            }else if(_h < 0){
-                _h += 24;
+                _h %= 24;
             }
-            makeSense(_h, _m);
+            this.h = _h;
+            this.m = _m;
+        }
+        //시간 형식으로 조정
+        private void makeSense(int _h, int _m){        
+            if(_h >= 0 && _h < 24 && _m >= 0 && _m < 60){
+                this.h = _h;
+                this.m = _m;
+            }else{
+                if(_m > 59){
+                    _m -= 60;
+                    _h++;
+                }else if(_m < 0){
+                    _m += 60;
+                    _h--;
+                }
+                if(_h >= 24){
+                    _h -= 24;
+                }else if(_h < 0){
+                    _h += 24;
+                }
+                makeSense(_h, _m);
+            }
+        }
+        //시간 덧셈
+        public void addTime(int _h, int _m){
+            this.h += _h;
+            this.m += _m;
+            this.makeSense(this.h, this.m);
+        }
+        //시간 출력
+        public void printTime(){
+            System.out.print(this.h + " " + this.m);
         }
     }
-    //시간 덧셈
-    public void addTime(int _h, int _m){
-        this.h += _h;
-        this.m += _m;
-        this.makeSense(this.h, this.m);
-    }
-    //시간 출력
-    public void printTime(){
-        System.out.print(this.h + " " + this.m);
-    }
-}
-
-public class Main_2525_2 {
+    
     //입력 받기
     private static int input() throws Exception{
         int a = 0;

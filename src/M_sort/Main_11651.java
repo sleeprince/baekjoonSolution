@@ -5,14 +5,17 @@ package M_sort;
 
 import java.util.Scanner;
 
-class Coord{
-    int x, y;
-    public Coord(){
-        this.x = 0;
-        this.y = 0;
-    }
-}
+
 public class Main_11651 {
+
+    static class Coord{
+        int x, y;
+        public Coord(){
+            this.x = 0;
+            this.y = 0;
+        }
+    }
+
     private static Coord[] mergeSort(Coord[] arr, int k){
         if(arr.length > 1){
             Coord[] f_arr = new Coord[arr.length/2];

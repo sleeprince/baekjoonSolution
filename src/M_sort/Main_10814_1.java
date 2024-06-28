@@ -12,13 +12,12 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 //ArrayList클래스와 sort메소드, Comparator클래스로써
-
-final class User{
-    public int age;
-    public String name;
-}
-
 public class Main_10814_1 {
+    
+    static class User{
+        public int age;
+        public String name;
+    }
     public static void main(String[] args){        
         List<User> list = new ArrayList<>();
         Scanner sc = new Scanner(System.in);

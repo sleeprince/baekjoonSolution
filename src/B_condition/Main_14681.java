@@ -11,7 +11,6 @@ package B_condition;
 
 import java.util.Scanner;
 
-
 public class Main_14681 {
     public static void main(String[] args) throws Exception{
         Scanner sc = new Scanner(System.in);
