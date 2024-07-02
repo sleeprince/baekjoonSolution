@@ -1,20 +1,9 @@
 package M_sort;
-// 수직선 위에 N개의 좌표 X1, X2, ..., XN이 있다. 이 좌표에 좌표 압축을 적용하려고 한다.
-// Xi를 좌표 압축한 결과 X'i의 값은 Xi > Xj를 만족하는 서로 다른 좌표 Xj의 개수와 같아야 한다.
-// X1, X2, ..., XN에 좌표 압축을 적용한 결과 X'1, X'2, ..., X'N를 출력해보자.
 
 import java.util.Iterator;
-
-// 첫째 줄에 N이 주어진다.
-// 둘째 줄에는 공백 한 칸으로 구분된 X1, X2, ..., XN이 주어진다.
-
-// 첫째 줄에 X'1, X'2, ..., X'N을 공백 한 칸으로 구분해서 출력한다.
-
 import java.util.Scanner;
 
-public class Main_18870 {
-
-    static class MyTree<T extends Comparable<T>> {
+public class MyTree<T extends Comparable<T>> {
 
         private Leaf<T> begin;
         private Leaf<T> end;
@@ -23,7 +12,7 @@ public class Main_18870 {
             private T key;
             private Leaf<T> right;
             private Leaf<T> left;
-            private Leaf<T> twig;
+            private Leaf<T> parent;
             private int index;
             private boolean leftmost;
             private boolean rightmost;
@@ -32,7 +21,7 @@ public class Main_18870 {
                 this.key = _key;
                 this.right = null;
                 this.left = null;
-                this.twig = null;
+                this.parent = null;
                 this.index = 0;
                 this.leftmost = true;
                 this.rightmost = true;
@@ -216,15 +205,4 @@ public class Main_18870 {
         public int size(){
             return end.getIndex() + 1;
         }
-    }
-    public static void main(String[] args){
-        Scanner sc = new Scanner(System.in);
-        int cnt = sc.nextInt();
-        int[] coor = new int[cnt];
-        for(int i = 0; i < cnt; i++){
-            int tmp = sc.nextInt();
-            coor[i] = tmp;
-        }
-        sc.close();
-    }
 }
