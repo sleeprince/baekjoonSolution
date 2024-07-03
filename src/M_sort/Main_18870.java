@@ -16,96 +16,29 @@ public class Main_18870 {
 
     static class MyTree<T extends Comparable<T>> {
 
-        private Leaf<T> begin;
-        private Leaf<T> end;
         private Leaf<T> root;
         private class Leaf<T>{
-            private T key;
-            private Leaf<T> right;
-            private Leaf<T> left;
-            private Leaf<T> twig;
-            private int index;
-            private boolean leftmost;
-            private boolean rightmost;
+            public T key;
+            public Leaf<T> right;
+            public Leaf<T> left;
+            public Leaf<T> parent;
+            public int index;
     
             public Leaf(T _key){           
                 this.key = _key;
                 this.right = null;
                 this.left = null;
-                this.twig = null;
+                this.parent = null;
                 this.index = 0;
-                this.leftmost = true;
-                this.rightmost = true;
-            }
-            
-            public void setKey(T _key){
-                this.key = _key;
-            }
-    
-            public void setRight(Leaf<T> _right){
-                this.right = _right;
-            }
-    
-            public void setLeft(Leaf<T> _left){
-                this.left = _left;
-            }
-    
-            public void setIndex(int _index){
-                this.index = _index;
-            }
-    
-            public void setLeftmost(boolean _type){
-                this.leftmost = _type;
-            }
-    
-            public void setRightmost(boolean _type){
-                this.rightmost = _type;
-            }
-    
-            public T getKey(){
-                return this.key;
-            }
-    
-            public Leaf<T> getRight(){
-                return this.right;
-            }
-    
-            public Leaf<T> getLeft(){
-                return this.left;
-            }
-    
-            public int getIndex(){
-                return this.index;
-            }
-    
-            public boolean getLeftmost(){
-                return this.leftmost;
-            }
-    
-            public boolean getRightmost(){
-                return this.rightmost;
-            }
-        }
-        
-        private class MyIter implements Iterator<T>{
-
-            public boolean hasNext(){
-                return false;
-            }
-
-            public 
+            }            
         }
 
         public MyTree(){
             this.root = null;
-            this.begin = null;
-            this.end = null;
         }
     
         public MyTree(T _key){
             Leaf<T> leaf = new Leaf(_key);
-            this.begin = leaf;
-            this.end = leaf;
             this.root = leaf;
         }    
     
@@ -114,16 +47,10 @@ public class Main_18870 {
             Leaf<T> leaf = new Leaf(_key);
     
             if(this.root == null){
-                this.begin = leaf;
-                this.end = leaf;
                 this.root = leaf;
-                return leaf.getIndex();
+                return leaf.index;
             }else if(addNext(this.root, leaf)){;
-                if(leaf.getLeftmost())
-                    this.begin = leaf;
-                if(leaf.getRightmost())
-                    this.end = leaf;
-                return leaf.getIndex();
+                return leaf.index;
             }else{
                 return -1;   
             }
