@@ -16,78 +16,82 @@ import java.util.StringTokenizer;
 
 public class Main_18870 {
 
-    public static Integer[] mergeSort(Integer[] arr){
+    public static int[] mergeSort(int[] arr){
+        int[] sortedArr = new int[1];
         if(arr.length > 1){            
-            Integer[] a = new Integer[arr.length/2];
-            Integer[] b = new Integer[arr.length - a.length];
+            int[] a = new int[arr.length/2];
+            int[] b = new int[arr.length - a.length];
             for(int i = 0; i < a.length; i++)
-            a[i] = arr[i];
+                a[i] = arr[i];
             for(int i = 0; i < b.length; i++)
-            b[i] = arr[i + a.length];
+                b[i] = arr[i + a.length];
             a = mergeSort(a);
             b = mergeSort(b);
-            arr = mergeArray(a, b);
+            sortedArr = mergeArray(a, b);
+        }else{
+            sortedArr[0] = arr[0];
         }
-        return arr;
+        return sortedArr;
     }
-    public static Integer[] mergeArray(Integer[] a, Integer[] b){
-        Integer[] arr = new Integer[a.length + b.length];
+    public static int[] mergeArray(int[] a, int[] b){
+        int[] arr = new int[a.length + b.length];
         int fingerA = 0;
-        int fingerB = 0;        
-        for(int i = 0; i < arr.length; i++){
+        int fingerB = 0;
+        int size = 0;
+        while(fingerA < a.length || fingerB < b.length){
             if(fingerA >= a.length){
-                arr[i] = b[fingerB];
+                arr[size] = b[fingerB];
                 fingerB++;
             }else if(fingerB >= b.length){
-                arr[i] = a[fingerA];
+                arr[size] = a[fingerA];
                 fingerA++;
             }else if(a[fingerA] > b[fingerB]){
-                arr[i] = b[fingerB];
+                arr[size] = b[fingerB];
                 fingerB++;
-            }else{
-                arr[i] = a[fingerA];
+            }else if(a[fingerA] < b[fingerB]){
+                arr[size] = a[fingerA];
                 fingerA++;
-            }
-        }                  
-        return arr;
-    }
-
-    public static int[] makeUnique(Integer[] arr){
-        int size = arr.length;
-        int j = 0;   
-        for(int i = 0; i < arr.length; i++){
-            if(arr[i] == arr[j]){
-                arr[i] = null;
-                size--;
             }else{
-                j = i + 1;
+                arr[size] = a[fingerA];
+                fingerA++;
+                fingerB++;
             }
+            size++;
         }
         int[] result = new int[size];
-        int k = 0;
-        for(int i = 0; i < arr.length; i++){
-            if(arr[i] != null){
-                result[k] = arr[i];
-                k++;
-            }
-        }
+        for(int i = 0; i < size; i++)
+            result[i] = arr[i];              
         return result;
+    }
+
+    public static int searchIndexOf(int[] sortedArr, int key, int from, int to){
+        if(to != from){
+            int half = (from + to)/2;
+            if(sortedArr[half] == key)
+                return half;
+            else if(sortedArr[half] > key)
+                return searchIndexOf(sortedArr, key, from, half);
+            else if(sortedArr[half] < key)
+                return searchIndexOf(sortedArr, key, half + 1, to);
+        }
+        return -1;
     }
     public static void main(String[] args) throws Exception{        
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         int cnt = Integer.parseInt(br.readLine());
-        Integer[] arr = new Integer[cnt];
+        int[] arr = new int[cnt];
         StringTokenizer st = new StringTokenizer(br.readLine());
         for(int i = 0; i < cnt; i++)
             arr[i] = Integer.parseInt(st.nextToken());
-        int[] arrNew = new int[1];
-        arr = mergeSort(arr);
-        for(int i = 0; i < cnt; i++)
-            System.out.print(arr[i] + " ");
-        arrNew = makeUnique(arr);
-        System.out.println();
-        for(int i = 0; i < arrNew.length; i++)
-            System.out.print(arrNew[i] + " ");
+        int[] sortedArr = mergeSort(arr);
+        // for(int el : sortedArr)
+        //     System.out.print(el + " ");
+        // System.out.println();
+        for(int el : arr){
+            bw.write(searchIndexOf(sortedArr, el, 0, sortedArr.length) + " ");            
+        }
+        bw.flush();
+        bw.close();
     }
 }
