@@ -13,7 +13,7 @@ import java.io.BufferedWriter;
 import java.io.OutputStreamWriter;
 import java.util.StringTokenizer;
 import java.util.Set;
-import java.util.TreeSet;
+import java.util.HashSet;
 
 public class Main_10815 {
     public static int toInteger(boolean a){
@@ -26,7 +26,7 @@ public class Main_10815 {
         int n = Integer.parseInt(br.readLine());
         StringTokenizer st = new StringTokenizer(br.readLine());
         
-        Set<Integer> mySet = new TreeSet<>();
+        Set<Integer> mySet = new HashSet<>();
         for(int i = 0; i < n; i++)
             mySet.add(Integer.parseInt(st.nextToken()));
         
