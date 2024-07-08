@@ -68,8 +68,6 @@ class MyTree<T extends Comparable<T>> {
         this.end = leaf;
     }
 
-    // public boolean addAll(Collection<? super T> c){}
-
     public boolean add(T _key){    
         Leaf<T> leaf = new Leaf(_key);    
         if(this.root == null){
@@ -79,15 +77,24 @@ class MyTree<T extends Comparable<T>> {
             return true;
         }else if(addNext(this.root, leaf)){
             if(leaf.leftmost)
-                this.begin = leaf;
+            this.begin = leaf;
             if(leaf.rightmost)
-                this.end = leaf;
+            this.end = leaf;
             return true;
         }else{
             return false;   
         }
     }
 
+    public boolean addAll(Collection<? super T> c){
+        boolean isSuccessful = true;
+        for(Object obj : c){
+            if(!add((T)obj))
+                isSuccessful = false;
+        }
+        return isSuccessful;
+    }
+    
     private boolean addNext(Leaf<T> now, Leaf<T> _leaf){            
         if(!this.contains(_leaf.key)){
             if(now.key.compareTo(_leaf.key) < 0){
@@ -225,7 +232,15 @@ class MyTree<T extends Comparable<T>> {
         }
         return false;
     }
-    // public boolean containsAll(Collection<? super T> c){}
+
+    public boolean containsAll(Collection<? super T> c){
+        boolean flag = true;
+        for(Object obj : c){
+            if(!contains((T)obj))
+                flag = false;
+        }
+        return flag;
+    }
 
     public T first(){
         return begin.key;
@@ -235,8 +250,23 @@ class MyTree<T extends Comparable<T>> {
         return end.key;
     }
 
-    // public T higher(T a){}
+    public T higher(T _key){
+        return higher(root, _key);
+    }
+
+    // private T higher(Leaf<T> _leaf, T _key){
+    //     if(_leaf.key.compareTo(_key) < 0){
+    //         if(_leaf.right == null)
+    //             return null;
+    //         else
+    //             return higher(_leaf.right, _key);
+    //     }else if(_leaf.key.compareTo(_key) > 0){
+
+    //     }
+    // }
     // public T lower(T a){}
+    
+    
     // public int getIndexOf(T _key){
     //     return getIndexOf(root, _key);
     // }
