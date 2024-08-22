@@ -28,12 +28,13 @@ public class Main_10814_1 {
             user.name = sc.next();
             list.add(user);
         }
-        list.sort(new Comparator<User>() {
-           @Override
-           public int compare(User user1, User user2){
-                return user1.age - user2.age;
-           } 
-        });
+        // list.sort(new Comparator<User>() {
+        //    @Override
+        //    public int compare(User user1, User user2){
+        //         return user1.age - user2.age;
+        //    } 
+        // });
+        list.sort((user1, user2) -> user1.age - user2.age);
         for(User user : list)
             System.out.println(user.age + " " + user.name);
 

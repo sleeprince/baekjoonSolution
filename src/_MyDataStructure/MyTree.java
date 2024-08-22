@@ -21,6 +21,17 @@ class MyTree<T extends Comparable<T>> {
         public boolean rightmost;
 
         //생성자
+        public Leaf(){
+            this.key = null;
+            this.right = null;
+            this.left = null;
+            this.parent = null;
+            this.index = 0;
+            this.height = 1;
+            this.leftmost = true;
+            this.rightmost = true;  
+        }
+
         public Leaf(T _key){           
             this.key = _key;
             this.right = null;
@@ -89,7 +100,7 @@ class MyTree<T extends Comparable<T>> {
     public boolean addAll(Collection<? super T> c){
         boolean isSuccessful = true;
         for(Object obj : c){
-            if(!add((T)obj))
+            if(!this.add((T)obj))
                 isSuccessful = false;
         }
         return isSuccessful;
@@ -236,7 +247,7 @@ class MyTree<T extends Comparable<T>> {
     public boolean containsAll(Collection<? super T> c){
         boolean flag = true;
         for(Object obj : c){
-            if(!contains((T)obj))
+            if(!this.contains((T)obj))
                 flag = false;
         }
         return flag;
@@ -250,20 +261,61 @@ class MyTree<T extends Comparable<T>> {
         return end.key;
     }
 
+    
+    private Leaf<T> getFirst(Leaf<T> _root){
+        if(_root.left != null)
+            return getFirst(_root.left);
+        else
+            return _root;        
+    }
+    
+    private Leaf<T> getLast(Leaf<T> _root){
+        if(_root.right != null)
+            return getLast(_root.left);
+        else
+            return _root; 
+    }
+    
+    private Leaf<T> findNext(Leaf<T> _leaf){
+        if(_leaf.right == null){
+            if(_leaf.parent == null){
+                return null;
+            }else{
+                while(_leaf.parent.left != _leaf){                
+                    _leaf = _leaf.parent; // 아직 다 안 함
+                }
+                return _leaf.parent;
+            }
+        }else{
+            return getFirst(_leaf.right);
+        }
+    }
+
+    private Leaf<T> findPrev(Leaf<T> _leaf){
+        if(_leaf.left == null){
+            while(_leaf.parent.right != _leaf){
+                _leaf = _leaf.parent;
+            }
+            return _leaf.parent;                            
+        }else{
+            return getLast(_leaf.left);
+        }
+    }
     public T higher(T _key){
         return higher(root, _key);
     }
 
-    // private T higher(Leaf<T> _leaf, T _key){
-    //     if(_leaf.key.compareTo(_key) < 0){
-    //         if(_leaf.right == null)
-    //             return null;
-    //         else
-    //             return higher(_leaf.right, _key);
-    //     }else if(_leaf.key.compareTo(_key) > 0){
+    private T higher(Leaf<T> _leaf, T _key){
+        if(_leaf.key.compareTo(_key) < 0){
+            if(_leaf.right == null)
+                return (_leaf.findNext() == null)? null : _leaf.findNext().key;
+            else
+                return higher(_leaf.right, _key);
+        }else if(_leaf.key.compareTo(_key) > 0){
 
-    //     }
-    // }
+        }
+    }
+    
     // public T lower(T a){}
     
     

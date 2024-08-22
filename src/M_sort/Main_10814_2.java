@@ -10,7 +10,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Scanner;
 
-//Lists클래스와 sort메소드, Comparator클래스로써
+//Arrays클래스와 sort메소드, Comparator클래스로써
 public class Main_10814_2 {
 
     static class User{
@@ -27,12 +27,13 @@ public class Main_10814_2 {
             user.name = sc.next();
             list[i] = user;
         }
-        Arrays.sort(list, new Comparator<User>() {
-           @Override
-           public int compare(User user1, User user2){
-                return user1.age - user2.age;
-           } 
-        });
+        // Arrays.sort(list, new Comparator<User>() {
+        //    @Override
+        //    public int compare(User user1, User user2){
+        //         return user1.age - user2.age;
+        //    } 
+        // });
+        Arrays.sort(list, (user1, user2) -> user1.age - user2.age);
         for(User user : list)
             System.out.println(user.age + " " + user.name);
 
