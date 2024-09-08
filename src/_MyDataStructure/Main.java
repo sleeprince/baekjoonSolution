@@ -15,7 +15,6 @@ public class Main {
             System.out.println("가장 작은 수:" + myTree.first());
             System.out.println("가장 큰 수:" + myTree.last());
             System.out.println(myTree.contains(12));
-        }
-        
+        }        
     }
 }

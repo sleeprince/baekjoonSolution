@@ -10,11 +10,11 @@ class MyTree<T extends Comparable<T>> {
     private Leaf<T> end;
     private Leaf<T> root;
 
-    private class Leaf<T>{
-        public T key;
-        public Leaf<T> right;
-        public Leaf<T> left;
-        public Leaf<T> parent;
+    private class Leaf<V extends T>{
+        public V key;
+        public Leaf<V> right;
+        public Leaf<V> left;
+        public Leaf<V> parent;
         public int height;
         public int index;
         public boolean leftmost;
@@ -32,7 +32,7 @@ class MyTree<T extends Comparable<T>> {
             this.rightmost = true;  
         }
 
-        public Leaf(T _key){           
+        public Leaf(V _key){           
             this.key = _key;
             this.right = null;
             this.left = null;
@@ -191,7 +191,7 @@ class MyTree<T extends Comparable<T>> {
         int left_h = (_leaf.left == null)? 1:_leaf.left.height + 1;
         _leaf.height = (right_h > left_h)? right_h:left_h;        
 
-        //index 조정
+        //index 조정 (오류 발견)
         _leaf.index = (_leaf.left == null)? 0:_leaf.left.index + 1;
     }
     
@@ -301,6 +301,7 @@ class MyTree<T extends Comparable<T>> {
             return getLast(_leaf.left);
         }
     }
+
     public T higher(T _key){
         return higher(root, _key);
     }
@@ -308,12 +309,13 @@ class MyTree<T extends Comparable<T>> {
     private T higher(Leaf<T> _leaf, T _key){
         if(_leaf.key.compareTo(_key) < 0){
             if(_leaf.right == null)
-                return (_leaf.findNext() == null)? null : _leaf.findNext().key;
+                return (findNext(_leaf) == null)? null : findNext(_leaf).key;
             else
                 return higher(_leaf.right, _key);
         }else if(_leaf.key.compareTo(_key) > 0){
 
         }
+        return null;
     }
     
     // public T lower(T a){}
