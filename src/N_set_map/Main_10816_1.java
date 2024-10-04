@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.StringTokenizer;
 
-public class Main_10816 {
+public class Main_10816_1 {
     public static class MyInteger {
         private int value;
         public MyInteger(){
