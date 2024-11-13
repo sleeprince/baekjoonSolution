@@ -1,7 +1,7 @@
 ## 백준 풀이
 > 백준: [https://www.acmicpc.net](https://www.acmicpc.net/)
 - 사용 언어: java
-- 파일 형식: `Main_{문제 번호}.java` 또는 `Main_{문제 번호}_{풀이 번호}.java`(여러 풀이가 있을 때)
+- 파일 형식: `Main_{문제 번호}.java` 또는 `Main_{문제 번호}_{풀이 번호}.java`
  
 ### 폴더 구성
 단계별로 풀어보기
