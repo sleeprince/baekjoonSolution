@@ -4,8 +4,8 @@
 - 파일 형식: `Main_{문제 번호}.java` 또는 `Main_{문제 번호}_{풀이 번호}.java`
  
 ### 폴더 구성
-단계별로 풀어보기
-1. 입출력과 사칙연산(A_input_output_arithmetic)
+- 단계별로 풀어보기
+1. 입출력과 사칙연산 `A_input_output_arithmetic` 
 2. 조건문(B_condition)
 3. 반복문(C_iteration)
 4. 1차원 배열(D_1dim_array)
