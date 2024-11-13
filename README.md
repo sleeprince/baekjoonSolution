@@ -2,7 +2,7 @@
 > 백준 홈: [https://www.acmicpc.net](https://www.acmicpc.net/)
 - 사용 언어: java 
 - 파일 형식: `Main_{문제 번호}.java` 또는 `Main_{문제 번호}_{풀이 번호}.java`
-- 각주로 문제 내용 기재
+- 파일 머리에 주석으로 문제 내용 기재
  
 ### 폴더 구성
 - 단계별로 풀어보기
