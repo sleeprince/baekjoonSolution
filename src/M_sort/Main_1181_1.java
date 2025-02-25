@@ -14,7 +14,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
 public class Main_1181_1 {
-    
+    // 알파벳 순서로 정렬, arr: 정렬할 배열, num: 정렬할 문자열 자릿수
     private static String[] countingSort(String[] arr, int num){
         String[][] alph = new String[27][arr.length];
         for(int i = 0; i < arr.length; i++){
@@ -38,7 +38,7 @@ public class Main_1181_1 {
         }
         return arr;
     }
-
+    // 문자열 길이 순서로 정렬
     private static String[] countingSort(String[] arr){
         String[][] len = new String[51][arr.length];
         for(int i = 0; i < arr.length; i++){
@@ -56,7 +56,7 @@ public class Main_1181_1 {
         }
         return arr;
     }
-
+    // 중복 문자열 제외하고 출력
     private static void printArray(String[] arr) throws IOException{
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         bw.write(arr[0] + "\n");
