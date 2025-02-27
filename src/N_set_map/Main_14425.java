@@ -33,7 +33,7 @@ public class Main_14425 {
         for(int i = 0; i < m; i++){
             if(mySet.contains(br.readLine()))
                 result++;
-        }        
+        }
         bw.write(result + "");
         bw.flush();
         bw.close();

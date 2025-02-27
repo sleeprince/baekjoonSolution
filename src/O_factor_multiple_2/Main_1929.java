@@ -19,5 +19,6 @@ public class Main_1929 {
                     isCompositeNum[j] = true;
             }
         }
+        sc.close();
     }
 }

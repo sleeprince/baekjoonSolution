@@ -25,7 +25,6 @@ public class Main_9506 {
                 if(n%i == 0) {
                     str += " + " + i;
                     sum += i;
-
                 }
             }
             if(n == sum){                

@@ -9,7 +9,6 @@ package H_common_mathmetics_1;
 
 // 상근이는 어떤 점은 한 개 보다 많은 정사각형에 포함될 수 있다는 사실을 알았다. 메모리 소모량을 줄이기 위해서 중복하는 점을 한 번만 저장하려고 한다. 과정을 N번 거친 후 점 몇 개를 저장해야 하는지 구하는 프로그램을 작성하시오.
 
-
 public class Main_2903 {
     private static int inputInt() throws Exception{
         int result = 0;

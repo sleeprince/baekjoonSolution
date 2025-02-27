@@ -25,7 +25,7 @@ public class Main_2581 {
         }else if(strt == 2){ 
             sum = 2;
             min = 2;
-        }        
+        }
         if(strt%2 == 0) strt++;
         for(int i = strt; i <= end; i += 2){
             primary = true;
