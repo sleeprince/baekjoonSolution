@@ -23,17 +23,17 @@ import java.util.StringTokenizer;
 // LinkedList로 구현
 class MyLinkedStack{
     private int lenth;
-    private node lastNode;
-    private class node{
+    private Node lastNode;
+    private class Node{
         int content;
-        node prev;
+        Node prev;
     }
     public MyLinkedStack(){
         this.lenth = 0;
         this.lastNode = null;
     }
     public void push(int _content){
-        node newNode= new node();
+        Node newNode= new Node();
         newNode.content = _content;
         newNode.prev = this.lastNode;
         this.lastNode = newNode;
