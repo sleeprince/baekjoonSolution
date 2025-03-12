@@ -20,7 +20,7 @@ public class Main_11729 {
         if(floor <= 1){
             list.add(from + " " + to);
         }else{
-            int mid = (from + to == 3)? 3 : (from + to == 4)? 2 : 1;
+            int mid = 6 - from - to;
             moveHanoiTower(floor - 1, from, mid);
             list.add(from + " " + to);
             moveHanoiTower(floor - 1, mid, to);
